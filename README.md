@@ -28,8 +28,8 @@ git --version
 ## 📥 Clone Repository
 
 ```bash
-git clone https://github.com/<nama-organization>/<nama-repo>.git
-cd <nama-repo>
+https://github.com/kelompok-sistem-pakar/sejiwa.git
+cd sejiwa
 ```
 
 ---
@@ -185,4 +185,4 @@ git push origin frontend/nisa
 ---
 
 Jika mengalami kendala, hubungi:
-**Backend / Project Manager – Mario**
+**Backend / Project Manager – Mario Ganteng**
