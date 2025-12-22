@@ -1,18 +1,15 @@
-@extends('layouts.app')
+
+?@extends('layouts.app')
 @section('title', 'CRUD Penyakit')
 
 @section('content')
 <h2>Daftar Penyakit</h2>
 
-<!-- TODO BUAT NISA: -->
-
+<!-- BUAT NISA: -->
+<!-- TODO: Buat table isi kolomnya = No,Kode_penyakit,Nama_penyakit-->
+<!-- TODO: Dibagian aksi buat dua Tombol Edit Dan Hapus -->
 
 <!-- ------------------------- -->
-
-<h1>wisnu</h1>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa laboriosam excepturi maiores.</p>
-
-
 
 <!-- TODO buat mario -->
 <!-- TODO: Tabel daftar penyakit -->
