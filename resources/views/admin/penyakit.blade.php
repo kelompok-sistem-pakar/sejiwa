@@ -4,6 +4,16 @@
 @section('content')
 <h2>Daftar Penyakit</h2>
 
+<!-- TODO BUAT NISA: -->
+
+
+<!-- ------------------------- -->
+
+<h1>wisnu</h1>
+
+
+
+<!-- TODO buat mario -->
 <!-- TODO: Tabel daftar penyakit -->
 <!-- TODO: Tombol Tambah / Edit / Hapus -->
 <!-- TODO: Modal atau halaman untuk form tambah/edit -->
