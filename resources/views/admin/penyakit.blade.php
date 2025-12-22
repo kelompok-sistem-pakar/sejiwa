@@ -10,6 +10,7 @@
 <!-- ------------------------- -->
 
 <h1>wisnu</h1>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa laboriosam excepturi maiores.</p>
 
 
 
