@@ -130,7 +130,7 @@ class KonsultasiController extends Controller
         $konsultasi = Konsultasi::create([
             'mahasiswa_id' => $mahasiswa->id,
             'tanggal' => now(),
-            'hasil_diagnosis' => $tertinggi['penyakit']->nama_penyakit ?? 'Tidak Terdiagnosis',
+            'diagnosis' => $tertinggi['penyakit']->nama_penyakit ?? 'Tidak Terdiagnosis',
             'cf_total' => $tertinggi['cf_total'] ?? 0,
         ]);
 
