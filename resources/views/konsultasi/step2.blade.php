@@ -1,19 +1,23 @@
-@extends('layouts.app')
-@section('title', 'Form Konsultasi')
+@extends('konsultasi.layout')
 
-@section('content')
-<h2>Pertanyaan Gejala</h2>
-<!-- NISA -->
-<!-- ================= STEP 2: PERTANYAAN GEJALA ================= -->
-<!-- TODO: Update stepper, tandai "Pertanyaan Gejala" sebagai aktif -->
-<!-- TODO: Tampilkan daftar pertanyaan gejala -->
-<!-- TODO: Gunakan slider untuk menentukan tingkat keyakinan -->
-<!-- TODO: Tampilkan nilai persentase dari slider -->
-<!-- TODO: Tombol lanjut ke step Konfirmasi & Proses -->
+@section('konsultasi_content')
 
-<!-- ================= STEP 2: Pertanyaan gejala =================
- <!-- MARIO -->
-<!-- TODO: Form detail konsultasi jika ingin pisah dari index.blade.php -->
-<!-- TODO: Input gejala / skala jawaban -->
-<!-- TODO: Tombol submit dan navigasi ke hasil konsultasi -->
+<!-- PERHATIKAN -->
+<!-- TODO NISA/WISNU: Tolong styling bagian ini -->
+
+<h2>Step 2: Pilih Gejala</h2>
+<form action="{{ route('konsultasi.step2.submit') }}" method="POST">
+    @csrf
+    @foreach($gejala as $g)
+    <div class="mb-4">
+        <label class="form-label">{{ $g->nama_gejala }}</label>
+        <input type="hidden" name="gejala_id[]" value="{{ $g->id }}">
+        <div class="d-flex align-items-center">
+            <input type="range" name="cf_user[]" class="form-range me-3" min="0" max="100" value="0" oninput="this.nextElementSibling.value = this.value">
+            <output>0</output>%
+        </div>
+    </div>
+    @endforeach
+    <button type="submit" class="btn btn-primary mt-3">Lanjut ke Step 3</button>
+</form>
 @endsection

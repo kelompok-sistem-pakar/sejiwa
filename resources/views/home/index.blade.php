@@ -3,6 +3,20 @@
 @section('title', 'Home')
 
 @section('content')
+<head>
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+
+    <!-- FONT DEFAULT -->
+    <style>
+        body {
+            font-family: 'Bricolage Grotesque', system-ui, -apple-system, 'Segoe UI', sans-serif;
+        }
+    </style>
+</head>
+
 <section class="hero py-5">
     <div class="container">
         <div class="row align-items-center">
@@ -20,15 +34,15 @@
                 </p>
 
                 <div class="d-flex gap-3">
-                    <a href="{{ url('/konsultasi') }}"
+                    <a href="{{ url('/konsultasi/step1') }}"
                         class="btn px-4 py-2 text-white"
-                        style="border-radius:20px;background:#b6f547;border:none;">
+                        style="border-radius:4px;background:#b6f547;border:none;">
                         Konsult Sekarang Yuk
                     </a>
 
                     <a href="#gejala"
                         class="btn px-4 py-2"
-                        style="border-radius:20px;border:1px solid #ccc;">
+                        style="border-radius:4px;border:1px solid #ccc;">
                         Explore Gejala
                     </a>
                 </div>
@@ -120,29 +134,24 @@
         </p>
 
         <div class="position-relative" style="height:650px;">
-
-            <!-- Garis putus-putus -->
             <svg width="100%" height="100%" style="position:absolute;inset:0;z-index:1;">
-                <path d="M 200 150 C 350 250, 550 50, 700 150"
-                      stroke="#b6f547" stroke-width="2" stroke-dasharray="6,6" fill="none"/>
-                <path d="M 200 350 C 350 450, 550 250, 700 350"
-                      stroke="#b6f547" stroke-width="2" stroke-dasharray="6,6" fill="none"/>
+                <path d="M 330 550 C 470 420 630 680 800 550" stroke="#b6f547" stroke-width="2" stroke-dasharray="6,6" fill="none" />
+                <path d="M 300 100 C 550 400 450 1 700 100" stroke="#b6f547" stroke-width="2" stroke-dasharray="6,6" fill="none" />
+                <path d="M 300 450 C 350 100 650 600 800 250" stroke="#b6f547" stroke-width="2" stroke-dasharray="6,6" fill="none" />
             </svg>
 
             <!-- CARD 01 -->
-            <div style="position:absolute;top:80px;left:80px;transform:rotate(-6deg);z-index:2;">
+            <div style="position:absolute;top:-10px;left:100px;transform:rotate(-6deg);z-index:2;">
                 <div style="position:relative;width:260px;padding-top:18px;">
-                    <!-- Pin -->
-                    <div style="position:absolute;top:-18px;left:50%;transform:translateX(-50%);
-                        width:28px;height:28px;background:#ffa726;border-radius:50%;
-                        box-shadow:0 6px 12px rgba(0,0,0,.25);"></div>
 
                     <!-- Outer -->
-                    <div style="background:#fff;border-radius:18px;padding:14px;
+                    <div style="background:#fff;border:1px solid #e0e0e0;border-radius:18px;padding:8px;
                         box-shadow:0 15px 40px rgba(0,0,0,.12);">
+                        <!-- Pin -->
+                        <img src="{{ asset('img/pin_oranye.png') }}" style="position:absolute;left:50%;transform:translateX(-50%);width:60px;height:60px;object-fit:contain;top:-2px; ">
 
                         <!-- Inner -->
-                        <div style="background:#ffe0b2;border-radius:14px;padding:20px;text-align:left;">
+                        <div style="margin:40px 0 0 0;background: linear-gradient(128deg, #ffca92 20%, #ffffffff 100%);border-radius:14px;padding:20px;text-align:left;Height:220px;">
                             <div class="fw-bold fs-3 mb-1">01</div>
                             <div class="fw-semibold mb-2">Mengisi Data Diri Pasien</div>
                             <p class="small mb-0">
@@ -154,18 +163,17 @@
             </div>
 
             <!-- CARD 02 -->
-            <div style="position:absolute;top:120px;right:120px;transform:rotate(6deg);z-index:2;">
+            <div style="position:absolute;top:20px;right:180px;transform:rotate(6deg);z-index:2;">
                 <div style="position:relative;width:260px;padding-top:18px;">
-                    <div style="position:absolute;top:-18px;left:50%;transform:translateX(-50%);
-                        width:28px;height:28px;background:#ef5350;border-radius:50%;
-                        box-shadow:0 6px 12px rgba(0,0,0,.25);"></div>
-
-                    <div style="background:#fff;border-radius:18px;padding:14px;
+                    <!-- Outer -->
+                    <div style="background:#fff;border:1px solid #e0e0e0;border-radius:18px;padding:8px;
                         box-shadow:0 15px 40px rgba(0,0,0,.12);">
-
-                        <div style="background:#ffcdd2;border-radius:14px;padding:20px;text-align:left;">
+                        <!-- Pin -->
+                        <img src="{{ asset('img/pin_red.png') }}" style="position:absolute;left:50%;transform:translateX(-50%);width:60px;height:60px;object-fit:contain;top:-2px;">
+                        <!-- Inner -->
+                        <div style="margin:40px 0 0 0;background:linear-gradient(218deg,#ff9d9a 20%,#fff 100%);border-radius:14px;padding:20px;text-align:left;Height:220px;">
                             <div class="fw-bold fs-3 mb-1">02</div>
-                            <div class="fw-semibold mb-2">Menjawab Pertanyaan Gejala</div>
+                            <div class="fw-semibold mb-2">Menjawab Pertanyaan </div>
                             <p class="small mb-0">
                                 Pilih gejala yang Anda rasakan dan tentukan tingkat keyakinan.
                             </p>
@@ -175,16 +183,15 @@
             </div>
 
             <!-- CARD 03 -->
-            <div style="position:absolute;bottom:160px;left:120px;transform:rotate(5deg);z-index:2;">
+            <div style="position:absolute;bottom:30px;left:180px;transform:rotate(5deg);z-index:2;">
                 <div style="position:relative;width:260px;padding-top:18px;">
-                    <div style="position:absolute;top:-18px;left:50%;transform:translateX(-50%);
-                        width:28px;height:28px;background:#42a5f5;border-radius:50%;
-                        box-shadow:0 6px 12px rgba(0,0,0,.25);"></div>
-
-                    <div style="background:#fff;border-radius:18px;padding:14px;
+                    <!-- Outer -->
+                    <div style="background:#fff;border:1px solid #e0e0e0;border-radius:18px;padding:8px;
                         box-shadow:0 15px 40px rgba(0,0,0,.12);">
-
-                        <div style="background:#d7f4f8;border-radius:14px;padding:20px;text-align:left;">
+                        <!-- Pin -->
+                        <img src="{{ asset('img/pin_blue.png') }}" style="position:absolute;left:50%;transform:translateX(-50%);width:60px;height:60px;object-fit:contain;top:-2px;">
+                        <!-- Inner -->
+                        <div style="margin:40px 0 0 0;background:linear-gradient(141deg,#a2edf1 20%,#fff 100%);border-radius:14px;padding:20px;text-align:left;height:220px;">
                             <div class="fw-bold fs-3 mb-1">03</div>
                             <div class="fw-semibold mb-2">Konfirmasi & Proses</div>
                             <p class="small mb-0">
@@ -196,16 +203,15 @@
             </div>
 
             <!-- CARD 04 -->
-            <div style="position:absolute;bottom:120px;right:120px;transform:rotate(-6deg);z-index:2;">
+            <div style="position:absolute;bottom:0px;right:100px;transform:rotate(-6deg);z-index:2;">
                 <div style="position:relative;width:260px;padding-top:18px;">
-                    <div style="position:absolute;top:-18px;left:50%;transform:translateX(-50%);
-                        width:28px;height:28px;background:#66bb6a;border-radius:50%;
-                        box-shadow:0 6px 12px rgba(0,0,0,.25);"></div>
-
-                    <div style="background:#fff;border-radius:18px;padding:14px;
+                    <!-- Outer -->
+                    <div style="background:#fff;border:1px solid #e0e0e0;border-radius:18px;padding:8px;
                         box-shadow:0 15px 40px rgba(0,0,0,.12);">
-
-                        <div style="background:#d8f5d8;border-radius:14px;padding:20px;text-align:left;">
+                        <!-- Pin -->
+                        <img src="{{ asset('img/pin_green.png') }}" style="position:absolute;left:50%;transform:translateX(-50%);width:60px;height:60px;object-fit:contain;top:-2px;">
+                        <!-- Inner -->
+                        <div style="margin:40px 0 0 0;background:linear-gradient(139deg,#bbefca 0%,#fff 100%);border-radius:14px;padding:20px;text-align:left;height:220px;">
                             <div class="fw-bold fs-3 mb-1">04</div>
                             <div class="fw-semibold mb-2">Hasil</div>
                             <p class="small mb-0">
@@ -219,11 +225,4 @@
         </div>
     </div>
 </section>
-
-
-{{-- TODO SECTION --}}
-{{-- Dibalik Sitem Kami --}}
-{{-- Cara Konsultasi --}}
-{{-- Kenapa Percaya Kami --}}
-{{-- Footer --}}
 @endsection
