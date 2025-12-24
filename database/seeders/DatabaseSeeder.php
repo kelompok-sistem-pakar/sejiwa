@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             GejalaSeeder::class,
             PenyakitSeeder::class,
             MahasiswaSeeder::class,
+            RuleSeeder::class,
         ]);
     }
 }
