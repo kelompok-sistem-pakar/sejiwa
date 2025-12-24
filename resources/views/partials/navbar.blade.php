@@ -1,3 +1,5 @@
+<!-- PERHATIKAN -->
+<!-- TODO NISA/WISNU: Tolong styling bagian navbar ini -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
         <a class="navbar-brand" href="{{ url('/') }}">Sejiwa</a>
@@ -7,11 +9,10 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="{{ url('/') }}">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ url('/konsultasi') }}">Konsultasi</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('konsultasi.step1') }}">Konsultasi</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ url('/about') }}">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ url('/admin/dashboard') }}">Admin</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('admin.konsultasi.index') }}">Admin</a></li>
             </ul>
         </div>
     </div>
-    <!-- TODO: Tambahkan dropdown user / login jika nanti diperlukan -->
 </nav>
