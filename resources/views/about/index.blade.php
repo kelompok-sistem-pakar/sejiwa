@@ -163,7 +163,8 @@
 <section class="py-5">
 
 </section>
-
+ 
+<!--  -->
 <!-- TODO: Isi data anggota (foto, nama, NIM, role) -->
 
 <!-- TODO: Tambahkan deskripsi singkat Team -->

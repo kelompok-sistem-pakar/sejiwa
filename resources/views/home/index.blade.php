@@ -222,7 +222,7 @@
 
 
 {{-- TODO SECTION --}}
-{{-- Dibalik Sistem Kami --}}
+{{-- Dibalik Sitem Kami --}}
 {{-- Cara Konsultasi --}}
 {{-- Kenapa Percaya Kami --}}
 {{-- Footer --}}
