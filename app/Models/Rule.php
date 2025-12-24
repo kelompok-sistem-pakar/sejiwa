@@ -9,6 +9,7 @@ class Rule extends Model
 {
     use HasFactory;
     
+    protected $table = 'rule';
     protected $fillable = ['gejala_id', 'penyakit_id', 'cf_pakar'];
 
     //relasi
