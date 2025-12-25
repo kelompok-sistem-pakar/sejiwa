@@ -4,6 +4,19 @@
 
 <!-- PERHATIKAN -->
 <!-- TODO NISA/WISNU: Tolong styling bagian ini -->
+<head>
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+
+    <!-- FONT DEFAULT -->
+    <style>
+        body {
+            font-family: 'Bricolage Grotesque', system-ui, -apple-system, 'Segoe UI', sans-serif;
+        }
+    </style>
+</head>
 
 <div class="row">
     <!-- Sidebar tracker -->
