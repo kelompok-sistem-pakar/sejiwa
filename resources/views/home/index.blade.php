@@ -17,12 +17,12 @@
     </style>
 </head>
 
-<section class="hero py-5">
+<section class="hero py-0 padding-top:-40px;">
     <div class="container">
-        <div class="row align-items-center">
+        <div class="row align-items-top">
 
             {{-- LEFT CONTENT --}}
-            <div class="col-md-6">
+            <div class="col-md-6 top-40" style="padding-top:40px;">
                 <h1 class="fw-bold mb-4" style="font-size:3rem;line-height:1.2;">
                     Memulai Dari Gejala <br>
                     Menuju Solusi
@@ -34,18 +34,49 @@
                 </p>
 
                 <div class="d-flex gap-3">
-                    <a href="{{ url('/konsultasi/step1') }}"
-                        class="btn px-4 py-2 text-white"
-                        style="border-radius:4px;background:#b6f547;border:none;">
+
+                    <!-- Konsult -->
+                    <a id="btnKonsult"
+                    href="{{ url('/konsultasi/step1') }}"
+                    class="btn px-4 py-2 text-white"
+                    style="border-radius:4px;background:#b6f547;border:1px solid transparent;"
+                    onmouseover="this.style.border='1px solid #6fae2e'"
+                    onmouseout="this.style.border='1px solid #fff'">
                         Konsult Sekarang Yuk
                     </a>
 
                     <a href="#gejala"
-                        class="btn px-4 py-2"
-                        style="border-radius:4px;border:1px solid #ccc;">
-                        Explore Gejala
-                    </a>
+   class="btn px-4 py-2"
+   style="border-radius:4px; background:transparent; border:1px solid #ccc; color:#000; transition: all 0.3s ease;"
+   onmouseover="
+       /* Efek Tombol B (Diri Sendiri) */
+       this.style.setProperty('background', '#b6f547', 'important');
+       this.style.setProperty('color', '#ffffff', 'important');
+       this.style.setProperty('border-color', '#b6f547', 'important');
+
+       /* Efek Tombol A (Konsult) - Paksa Teks Jadi Hitam */
+       const btnA = document.getElementById('btnKonsult');
+       btnA.style.setProperty('background', 'transparent', 'important');
+       btnA.style.setProperty('color', '#000000', 'important'); 
+       btnA.style.setProperty('border', '1px solid #ccc', 'important');
+   "
+   onmouseout="
+       /* Kembalikan Tombol B */
+       this.style.setProperty('background', 'transparent', 'important');
+       this.style.setProperty('color', '#000000', 'important');
+       this.style.setProperty('border-color', '#ccc', 'important');
+
+       /* Kembalikan Tombol A ke Hijau */
+       const btnA = document.getElementById('btnKonsult');
+       btnA.style.setProperty('background', '#b6f547', 'important');
+       btnA.style.setProperty('color', '#ffffff', 'important');
+       btnA.style.setProperty('border', '1px solid transparent', 'important');
+   ">
+    Explore Gejala
+</a>
+
                 </div>
+
             </div>
 
             {{-- RIGHT VISUAL --}}
@@ -66,6 +97,7 @@
                         inset:20px;
                         border-radius:24px;
                         background:rgba(255,255,255,0.35);
+                        pading:0px;
                     "></div>
 
                     {{-- Hero Image --}}
@@ -76,6 +108,7 @@
                             z-index:2;
                             height:100%;
                             object-fit:contain;
+                            bottom:0px;
                          ">
 
                     {{-- Floating Card --}}
@@ -225,4 +258,6 @@
         </div>
     </div>
 </section>
+
+
 @endsection
