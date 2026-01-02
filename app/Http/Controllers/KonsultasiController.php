@@ -151,7 +151,7 @@ class KonsultasiController extends Controller
         $hasil = [
             'penyakit' => $tertinggi['penyakit']->nama_penyakit ?? 'Tidak Terdiagnosis',
             'cf_total' => $tertinggi['cf_total'] ?? 0,
-            'solusi' => $tertinggi['penyakit']->solusi ?? '-'
+            'rekomendasi' => $tertinggi['penyakit']->rekomendasi ?? '-'
         ];
 
         return view('konsultasi.step4', compact(

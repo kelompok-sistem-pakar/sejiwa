@@ -37,7 +37,7 @@
         <div>
             <span class="fw-medium">Solusi:</span>
             <div style="color:#2f2f2f;">
-                {{ $hasil['solusi'] }}
+                {{ $hasil['rekomendasi'] }}
             </div>
         </div>
 

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('kode_penyakit', 10)->unique();
             $table->string('nama_penyakit');
+            $table->text('rekomendasi');
             $table->timestamps();
         });
     }
