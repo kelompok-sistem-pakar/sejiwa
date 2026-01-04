@@ -52,7 +52,7 @@
         <!-- ==================== ACTION BUTTON START ==================== -->
         <div class="d-flex">
             <a
-                href="{{ route('admin.konsultasi.index') }}"
+                href="{{ route('admin.login') }}"
                 class="btn btn-outline-dark px-4 py-1"
                 style="border-radius:4px;"
             >

@@ -2,83 +2,56 @@
 
 @section('konsultasi_content')
 
-<!-- ==================== STEP 4 CONTAINER START ==================== -->
 <div class="container pt-2 pb-3" style="max-width:680px;">
 
-    <!-- ==================== TITLE START ==================== -->
     <div class="mb-3">
-        <h2 class="fw-semibold mb-1" style="color:#2f2f2f;">
-            Step 4: Hasil Konsultasi
-        </h2>
-        <small style="color:#6c757d;">
-            Berikut hasil analisis berdasarkan gejala yang kamu pilih
-        </small>
+        <h2 class="fw-semibold mb-1">Step 4: Hasil Konsultasi</h2>
+        <small class="text-muted">Hasil analisis sistem pakar</small>
     </div>
-    <!-- ==================== TITLE END ==================== -->
 
-    <!-- ==================== HASIL UTAMA START ==================== -->
-    <div class="mb-3 p-3" style="border:1px solid #e9ecef;border-radius:10px;background:#f9fbf5;">
-
-        <h5 class="fw-semibold mb-2" style="color:#2f2f2f;">
-            Penyakit Terdiagnosis
-        </h5>
-
-        <div class="fw-bold mb-2" style="font-size:1.1rem;color:#1f1f1f;">
-            {{ $hasil['penyakit'] }}
-        </div>
-
-        <div class="mb-2">
-            <span class="fw-medium">Tingkat Keyakinan:</span>
-            <span class="fw-semibold" style="color:#7fbf2f;">
-                {{ round($hasil['cf_total'] * 100, 2) }}%
-            </span>
-        </div>
-
+    <div class="p-3 mb-3 border rounded bg-light">
+        <h5 class="fw-semibold">Diagnosis</h5>
+        <div class="fw-bold">{{ $hasil['penyakit'] }}</div>
         <div>
-            <span class="fw-medium">Solusi:</span>
-            <div style="color:#2f2f2f;">
-                {{ $hasil['rekomendasi'] }}
-            </div>
+            Keyakinan:
+            <strong>{{ round($hasil['cf_total'] * 100, 2) }}%</strong>
         </div>
-
+        <div class="fst-italic mt-2">{{ $hasil['rekomendasi'] }}</div>
     </div>
-    <!-- ==================== HASIL UTAMA END ==================== -->
 
-    <!-- ==================== GEJALA LIST START ==================== -->
     <div class="mb-3">
-        <h6 class="fw-semibold mb-2" style="color:#2f2f2f;">
-            Gejala yang Dipilih
-        </h6>
-
+        <h6 class="fw-semibold">Gejala Dipilih</h6>
         @foreach ($gejala_selected as $g)
-            @php
-                $cf_user = collect(session('jawaban_gejala'))->firstWhere('gejala_id', $g->id)['cf_user'] ?? 0;
-            @endphp
+        @php
+        $cf = collect(session('jawaban_gejala'))
+        ->firstWhere('gejala_id', $g->id)['cf_user'] * 100;
+        @endphp
 
-            <div class="d-flex justify-content-between align-items-center mb-2 p-2" style="border:1px solid #e9ecef;border-radius:6px;">
-                <span>{{ $g->nama_gejala }}</span>
-                <span class="fw-semibold" style="color:#2f2f2f;">
-                    {{ round($cf_user * 100, 2) }}%
-                </span>
-            </div>
+        <div class="d-flex justify-content-between p-2 mb-2 border rounded">
+            <span>{{ $g->nama_gejala }}</span>
+            <strong>{{ $cf }}%</strong>
+        </div>
         @endforeach
     </div>
-    <!-- ==================== GEJALA LIST END ==================== -->
 
-    <!-- ==================== ACTION BUTTON START ==================== -->
-    <div class="d-flex justify-content-end mt-3">
-        <a
-            href="{{ url('/konsultasi/step1') }}"
-            class="btn px-4 py-2 fw-semibold"
-            style="background:#B9F04F;color:#1f1f1f;border-radius:6px;border:1px solid transparent;"
-            onmouseover="this.style.border='1px solid #6fae2e'"
-            onmouseout="this.style.border='1px solid transparent'">
-            Selesai
+    <div class="d-flex justify-content-between">
+        <a href="{{ route('konsultasi.step3') }}"
+            class="btn px-4 fw-semibold"
+            style="background:#e9ecef;">
+            Kembali
         </a>
+
+        <form action="{{ route('konsultasi.finish') }}" method="POST">
+            @csrf
+            <button
+                type="submit"
+                class="btn px-4 py-2 fw-semibold"
+                style="background:#B9F04F;">
+                Selesai
+            </button>
+        </form>
     </div>
-    <!-- ==================== ACTION BUTTON END ==================== -->
 
 </div>
-<!-- ==================== STEP 4 CONTAINER END ==================== -->
 
 @endsection
