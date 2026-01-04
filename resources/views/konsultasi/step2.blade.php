@@ -18,6 +18,14 @@
         background: #dfe8c8;
         border-radius: 6px;
     }
+
+    /* Scroll-limited container for gejala list (limit to one viewport) */
+    .gejala-scroll {
+        max-height: calc(100vh - 180px);
+        overflow-y: auto;
+        padding-right: 8px;
+        /* avoid content hiding under scrollbar */
+    }
 </style>
 
 @php
@@ -34,32 +42,34 @@ $jawaban = collect(session('jawaban_gejala', []))->keyBy('gejala_id');
     <form action="{{ route('konsultasi.step2.submit') }}" method="POST">
         @csrf
 
-        @foreach ($gejala as $g)
-        @php
-        $cf = isset($jawaban[$g->id]) ? $jawaban[$g->id]['cf_user'] * 100 : 0;
-        @endphp
+        <div class="gejala-scroll">
+            @foreach ($gejala as $g)
+            @php
+            $cf = isset($jawaban[$g->id]) ? $jawaban[$g->id]['cf_user'] * 100 : 0;
+            @endphp
 
-        <div class="mb-3 p-3 border rounded">
-            <label class="fw-medium mb-2">{{ $g->nama_gejala }}</label>
+            <div class="mb-3 p-3 border rounded">
+                <label class="fw-medium mb-2">{{ $g->nama_gejala }}</label>
 
-            <input type="hidden" name="gejala_id[]" value="{{ $g->id }}">
+                <input type="hidden" name="gejala_id[]" value="{{ $g->id }}">
 
-            <div class="d-flex align-items-center gap-3">
-                <input
-                    type="range"
-                    name="cf_user[]"
-                    min="0"
-                    max="100"
-                    value="{{ $cf }}"
-                    class="form-range flex-grow-1"
-                    oninput="this.parentElement.querySelector('output').value=this.value">
+                <div class="d-flex align-items-center gap-3">
+                    <input
+                        type="range"
+                        name="cf_user[]"
+                        min="0"
+                        max="100"
+                        value="{{ $cf }}"
+                        class="form-range flex-grow-1"
+                        oninput="this.parentElement.querySelector('output').value=this.value">
 
-                <div class="fw-semibold" style="width:45px;">
-                    <output>{{ $cf }}</output>%
+                    <div class="fw-semibold" style="width:45px;">
+                        <output>{{ $cf }}</output>%
+                    </div>
                 </div>
             </div>
+            @endforeach
         </div>
-        @endforeach
 
         <div class="d-flex justify-content-end">
             <button class="btn fw-semibold px-4" style="background:#B9F04F;">

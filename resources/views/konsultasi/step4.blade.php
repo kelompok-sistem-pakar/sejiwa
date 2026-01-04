@@ -10,27 +10,33 @@
     </div>
 
     <div class="p-3 mb-3 border rounded bg-light">
-        <h5 class="fw-semibold">Diagnosis</h5>
-        <div class="fw-bold">{{ $hasil['penyakit'] }}</div>
+        <h5 class="fw-bold">Diagnosis :</h5>
+        <div class="fst-italic fw-semibold mt-2" style="color: #ec8d3a;">{{ $hasil['penyakit'] }}</div><br>
         <div>
-            Keyakinan:
-            <strong>{{ round($hasil['cf_total'] * 100, 2) }}%</strong>
+            <h5 class="fw-bold">Keyakinan :</h5>
+            <div class="fst-italic fw-bold mt-2" style="color: #ec8d3a;">{{ round($hasil['cf_total'] * 100, 2) }}%</div>
+        </div><br>
+        <div>
+            <h5 class="fw-semibold">Rekomendasi Penanganan Awal :</h5>
+            <div class="fst-italic mt-2 text-sm">{{ $hasil['rekomendasi'] }}</div>
         </div>
-        <div class="fst-italic mt-2">{{ $hasil['rekomendasi'] }}</div>
     </div>
 
     <div class="mb-3">
         <h6 class="fw-semibold">Gejala Dipilih</h6>
         @foreach ($gejala_selected as $g)
         @php
-        $cf = collect(session('jawaban_gejala'))
-        ->firstWhere('gejala_id', $g->id)['cf_user'] * 100;
+        $jawaban = collect(session('jawaban_gejala', []));
+        $item = $jawaban->firstWhere('gejala_id', $g->id);
+        $cf = $item ? ($item['cf_user'] * 100) : 0;
         @endphp
 
+        @if($cf > 0)
         <div class="d-flex justify-content-between p-2 mb-2 border rounded">
             <span>{{ $g->nama_gejala }}</span>
-            <strong>{{ $cf }}%</strong>
+            <strong>{{ round($cf, 2) }}%</strong>
         </div>
+        @endif
         @endforeach
     </div>
 
